@@ -1,0 +1,18 @@
+# root
+GET http://localhost:3001/
+
+###
+# all users
+GET http://localhost:3001/users
+
+
+###
+# create user
+POST http://localhost:3001/users
+Content-Type: application/json
+
+{
+    "id": 4,
+    "name": "João",
+    "email": "joao@email.com"
+}
