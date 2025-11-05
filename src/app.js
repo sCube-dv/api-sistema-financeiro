@@ -55,7 +55,7 @@ app.get('/users/:id', (req, res) => {
     res.json(findUserById(req.params.id));
 });
 
-/* insert new data */
+/* create new user */
 app.post('/users', (req, res) => {
     /* add new object */
     users.push(req.body);
