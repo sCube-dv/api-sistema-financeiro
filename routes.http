@@ -19,3 +19,18 @@ Content-Type: application/json
     "name": "João",
     "email": "joao@email.com"
 }
+
+###
+# delete user by id
+DELETE http://localhost:3001/users/3
+
+
+###
+#  update user by id
+PUT http://localhost:3001/users/1
+Content-Type: application/json
+
+{
+    "name": "Joana",
+    "email": "joh@email.com"
+}

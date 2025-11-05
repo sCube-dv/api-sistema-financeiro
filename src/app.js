@@ -31,6 +31,11 @@ const findUserById = (id) => {
     return users.filter(user => user.id == id);
 }
 
+/* find index of object by id */
+const findUserIndexById = (id) => {
+    return users.findIndex(user => user.id == id);
+}
+
 /* middlewares */
 app.use(cors());
 app.use(express.json()); // enable json read
@@ -38,7 +43,7 @@ app.use(express.json()); // enable json read
 /* routes */
 app.get('/', (req, res) => {
     res.status(200).send("API Sistema Financeiro");
-})
+});
 
 /* show all users */
 app.get('/users', (req, res) => {
@@ -57,6 +62,20 @@ app.post('/users', (req, res) => {
     res.status(201).send('Usuário cadastrado com sucesso!');
 });
 
+/* delete user */
+app.delete('/users/:id', (req, res) => {
+    let index = findUserIndexById(req.params.id);
+    users.splice(index, 1);
+    res.send('Usuário deletado com sucesso!')
+});
+
+/* update user */
+app.put('/users/:id', (req, res) => {
+    let index = findUserIndexById(req.params.id);
+    users[index].name = req.body.name;
+    users[index].email = req.body.email;
+    res.json(users);
+});
 
 
 export default app;
