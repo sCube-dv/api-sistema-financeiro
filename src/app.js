@@ -37,7 +37,7 @@ app.use(express.json()); // enable json read
 
 /* routes */
 app.get('/', (req, res) => {
-    res.status(200).send("<h1>Server Online!</h1>");
+    res.status(200).send("API Sistema Financeiro");
 })
 
 /* show all users */
@@ -54,7 +54,7 @@ app.get('/users/:id', (req, res) => {
 app.post('/users', (req, res) => {
     /* add new object */
     users.push(req.body);
-    res.status(201).send('Seleção cadastrada com sucesso!');
+    res.status(201).send('Usuário cadastrado com sucesso!');
 });
 
 
