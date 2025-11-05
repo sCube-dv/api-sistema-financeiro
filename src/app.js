@@ -26,6 +26,11 @@ const users = [
     }
 ]
 
+/* function to find a user by id */
+const findUserById = (id) => {
+    return users.filter(user => user.id == id);
+}
+
 /* middlewares */
 app.use(cors());
 app.use(express.json()); // enable json read
@@ -40,13 +45,18 @@ app.get('/users', (req, res) => {
     res.status(200).json(users);
 });
 
+/* get user by id */
+app.get('/users/:id', (req, res) => {
+    res.json(findUserById(req.params.id));
+});
+
 /* insert new data */
 app.post('/users', (req, res) => {
     /* add new object */
     users.push(req.body);
     res.status(201).send('Seleção cadastrada com sucesso!');
 });
-                
+
 
 
 export default app;
